@@ -9,6 +9,7 @@ html(lang='en', ng-app="rapApp")
 		.fb-login-button(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
 		#fb-root
 		script.
+			// for the button
 			(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
 			if (d.getElementById(id)) return;
@@ -102,24 +103,11 @@ html(lang='en', ng-app="rapApp")
 			'Thanks for logging in, ' + response.name + '!';
 			});
 			}
-		fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
-		#status
+			//may need this button again, contains scope
+		//- fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
+		//- #status
 
-			//- window.fbAsyncInit = function() {
-			//- FB.init({
-			//- appId      : '473646152796474',
-			//- xfbml      : true,
-			//- version    : 'v2.4',
-			//- status	   : true,
-			//- });
-			//- };
-			//- (function(d, s, id){
-			//- var js, fjs = d.getElementsByTagName(s)[0];
-			//- if (d.getElementById(id)) {return;}
-			//- js = d.createElement(s); js.id = id;
-			//- js.src = "//connect.facebook.net/en_US/sdk.js";
-			//- fjs.parentNode.insertBefore(js, fjs);
-			//- }(document, 'script', 'facebook-jssdk'));
+		
 
 		block content
 		
