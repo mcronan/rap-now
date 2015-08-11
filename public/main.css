@@ -1,0 +1,29 @@
+#rapBox {
+	width: 300px;
+	height: 300px;
+	font-size: 20px;
+}
+
+#finishedRap {
+	width: 300px;
+	height: 300px;
+	font-size: 20px;
+	background-color: grey;
+
+}
+
+::-webkit-input-placeholder {
+   font-size: 20px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red;  
+}
+
+:-ms-input-placeholder {  
+   color: red;  
+}
