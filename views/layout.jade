@@ -78,8 +78,8 @@ html(lang='en', ng-app="rapApp")
 			'Thanks for logging in, ' + response.name + '!';
 			});
 			}
-	
-
+		fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
+		#status
 
 			//- window.fbAsyncInit = function() {
 			//- FB.init({
