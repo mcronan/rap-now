@@ -111,8 +111,25 @@ html(lang='en', ng-app="rapApp")
 			});
 			}
 			//may need this button again, contains scope
-		//- fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
-		//- #status
+			//- fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
+			//- #status
+
+			// for the SHARE dialog
+			FB.ui(
+			{
+			method: 'share',
+			href: 'https://rap-now.herokuapp.com/#/',
+			},
+			// callback
+			function(response) {
+			if (response && !response.error_code) {
+			alert('Posting completed.');
+			} else {
+			alert('Error while posting.');
+			}
+			}
+			);
+
 
 		
 
