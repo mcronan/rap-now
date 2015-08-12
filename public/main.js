@@ -42,10 +42,11 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 			this.newRap = {};
 		}
 
-	// for the button
+	// features dependent on imer
 	$scope.showinput = true;
 	$scope.showoutput = false;
 	$scope.timeInS = 5000;
+	$scope.showButton = false;
 	
 
 // countdown timer
@@ -61,18 +62,20 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 			$scope.showinput = false;
 			// show new rap
 			$scope.showoutput = true;
+			// show FB buttons
+			$scope.showButton = true;
 		}
 		
 	}
 		$timeout(countDown, 1000)
 
-	// for FEED popup
+	// show FEED popup
 	$scope.popup = function() {
 		console.log("popup")
 			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
 		}
 
-	// for the SEND popup
+	// show the SEND popup
 	$scope.PmPopup = function() {
 		console.log("PmPopup")
 			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 

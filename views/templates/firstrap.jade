@@ -2,16 +2,21 @@
 h2 Ready to start?
 div{{timeInS}}
 
-form(ng-submit="popup()")
+
+//- share popup
+form(ng-submit="popup()" ng-show="showButton")
 	input(type="submit" value="share") 
 
-form(ng-submit="PmPopup()")
+//- PM popup
+form(ng-submit="PmPopup()" ng-show="showButton")
 	input(type="submit" value="SendPM")
 
+//- adds rap to db
 form(ng-submit="addRap()" ng-show="showinput")
 	input(placeholder="Enter your rap!" id="rapBox" ng-model="newRap.rap")
 	input(type="submit" value="submit") 
 
+//- shows rap
 div(ng-repeat="rap in raps")
 	div(id="finishedRap") {{rap.rap}}
 
