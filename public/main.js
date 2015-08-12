@@ -70,6 +70,7 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 
 	// for the popup
 	var popup = function() {
+		console.log("popup")
 		window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
 				}
 })
