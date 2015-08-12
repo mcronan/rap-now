@@ -24,9 +24,7 @@ rapApp.factory('rapFactory', function($resource) {
 
 rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 
-// countdown timer
 
-	
 		
 	// list of raps from rapFactory
 	$scope.raps = rapFactory.raps;
@@ -51,6 +49,8 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 	$scope.showoutput = false;
 	$scope.timeInS = 5000;
 	
+
+// countdown timer
 	var countDown = function() {
 		var theTime = $scope.timeInS -= 1000;
 		var timer = $timeout(countDown, 1000)
@@ -67,5 +67,9 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 		
 	}
 		$timeout(countDown, 1000)
-				
+
+	// for the popup
+	var popup() = function {
+		window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+				}
 })
