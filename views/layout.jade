@@ -131,8 +131,13 @@ html(lang='en', ng-app="rapApp")
 			}
 			}
 			);
-		button(ng-click="popup()") Share
 
+			// for the SEND dialog
+			FB.ui({
+			method: 'send',
+			link: 'https://rap-now.herokuapp.com/',
+			});
+					
 
 		//- a(href="https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com") Share
 

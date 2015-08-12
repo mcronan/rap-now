@@ -23,8 +23,6 @@ rapApp.factory('rapFactory', function($resource) {
 
 
 rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
-
-
 		
 	// list of raps from rapFactory
 	$scope.raps = rapFactory.raps;
@@ -68,9 +66,15 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 	}
 		$timeout(countDown, 1000)
 
-	// for the popup
-		$scope.popup = function() {
+	// for FEED popup
+	$scope.popup = function() {
 		console.log("popup")
-		window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
-				}
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+		}
+
+	// for the SEND popup
+	$scope.PmPopup = function() {
+		console.log("PmPopup")
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+		}
 })
