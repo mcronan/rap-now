@@ -75,7 +75,7 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 	// show FEED popup
 	$scope.popup = function() {
 		console.log("popup")
-			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://localhost:5000/:uniqueID&redirect_uri=https://localhost:5000/:uniqueID", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=http://rap-now.herokuapp.com/&redirect_uri=http://rap-now.herokuapp.com/", "height=236, width=516") 
 		}
 
 	//  to close the popup when it works
