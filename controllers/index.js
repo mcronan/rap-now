@@ -7,9 +7,15 @@ function getRandom(min, max) {
 var randomNo = getRandom(1, 100000);
 
 var indexController = {
-	index: function(req, res) {
+	// 'next' middleare for the second rapper
+	index: function(req, res, next) {
 		// pass in randomiser object in our route
-		res.render('index', {uniqueID : randomNo});
+		// if((window.location.hash='#{uniqueID}') === (window.location.hash='#{uniqueID}')) {
+		// 	next()
+		// } else { 
+		res.render('index', {uniqueID : randomNo}); 
+		// }
+		// res.redirect('templates/secondrap');
 	},
 
 	templates: function(req, res) {

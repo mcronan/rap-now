@@ -10,6 +10,10 @@ rapApp.config(function($routeProvider) {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
+	.when('/templates/secondrap', {
+		templateUrl : 'templates/secondrap',
+		controller : 'rapController'
+	})
 })
 
 rapApp.factory('rapFactory', function($resource) {
@@ -20,15 +24,19 @@ rapApp.factory('rapFactory', function($resource) {
 	return {
 		model  : model, 
 		// model.query returns an array of objects
-		raps   : model.query()
+		raps   : model.query(),
+		userIDs  : model.query()
 	}
 })
 
 
-rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
+rapApp.controller('rapController', function($scope, $timeout, $routeParams, $http, rapFactory) {
 		
 	// list of raps from rapFactory
 	$scope.raps = rapFactory.raps;
+	$scope.userIDs = rapFactory.userIDs;
+
+
 
 	// add rap to doc 
 	$scope.addRap = function() {
@@ -37,9 +45,8 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 
 		// sends POST to api/raps
 			userRap.$save(function(returnData) {
-				console.log("hello", returnData)
 				rapFactory.raps.push(returnData)
-				console.log(rapFactory.raps)
+				
 			})		
 			// empties the object
 			this.newRap = {};
@@ -88,4 +95,24 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 		console.log("PmPopup")
 			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
 		}
+
+	$routeParams = userID
+	var userID = $routeParams.userID
+	$http.post('/game', {user : userID}).then(function(returnData){
+			console.log(returnData.data)
+		})
+
+	// let's push the user ID into an object
+	// $scope.init = function() {
+		
+	// 	if(uniqueID === uniqueID) {
+	// 	var theUserID = new rapFactory.model(uniqueID)
+	// 	theUserID.$save(function(returnData) {
+	// 		rapFactory.userIDs.push(returnData)
+	// 		console.log(returnData)
+	// 		})
+	// 	}
+	// }
+
+	// $scope.init()
 })
