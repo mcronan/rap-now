@@ -4,3 +4,9 @@ block content
 	h1 Rap Now!
 
 	div(ng-view)
+
+	script.
+		//- so our JS can access the variable
+		var uniqueID = '#{uniqueID}'
+		//- will apply to everything after the #
+		window.location.hash='#{uniqueID}'

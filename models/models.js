@@ -15,5 +15,4 @@ var rapSchema = mongoose.Schema({
 var Rap = mongoose.model('Rap', rapSchema);
 
 // mongoose.schema.objectID
-
 module.exports = Rap;

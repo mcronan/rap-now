@@ -27,6 +27,7 @@ html(lang='en', ng-app="rapApp")
 			}(document, 'script', 'facebook-jssdk'));
 			// end LOGIN button
 
+			//- facebook SDK
 			window.fbAsyncInit = function() {
 			FB.init({
 			appId      : '473646152796474',
@@ -120,8 +121,8 @@ html(lang='en', ng-app="rapApp")
 			FB.ui(
 			{
 			method: 'feed',
-			link: 'https://rap-now.herokuapp.com',
-			caption: 'time to start rapping!',
+			link: 'https://localhost:5000/:uniqueID',
+			caption: 'testcaption',
 			display: 'popup',
 			},
 			// callback
@@ -142,8 +143,6 @@ html(lang='en', ng-app="rapApp")
 					
 
 		//- a(href="https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com") Share
-
-
 
 		block content
 		

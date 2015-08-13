@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 
 
 app.get('/', indexController.index);
-app.get('/templates/:templateName/', indexController.templates)
+app.get('/templates/:templateName/', indexController.templates);
 
-app.get('/api/raps', apiController.get)
-app.post('/api/raps', apiController.create)
+app.get('/api/raps', apiController.get);
+app.post('/api/raps', apiController.create);
 
 app.listen(process.env.PORT || 5000);

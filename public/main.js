@@ -6,6 +6,10 @@ rapApp.config(function($routeProvider) {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
+	.when('/:uniqueID', {
+		templateUrl : '/templates/firstrap',
+		controller : 'rapController'
+	})
 })
 
 rapApp.factory('rapFactory', function($resource) {
@@ -19,7 +23,6 @@ rapApp.factory('rapFactory', function($resource) {
 		raps   : model.query()
 	}
 })
-
 
 
 rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
@@ -45,7 +48,7 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 	// features dependent on imer
 	$scope.showinput = true;
 	$scope.showoutput = false;
-	$scope.timeInS = 5000;
+	$scope.timeInS = 4000;
 	$scope.showButton = false;
 	
 
@@ -72,8 +75,13 @@ rapApp.controller('rapController', function($scope, $timeout, rapFactory) {
 	// show FEED popup
 	$scope.popup = function() {
 		console.log("popup")
-			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://localhost:5000/:uniqueID&redirect_uri=https://localhost:5000/:uniqueID", "height=236, width=516") 
 		}
+
+	//  to close the popup when it works
+	// Redirect to http://oursite.com/#close_window. Then on your site's homepage, include something like this:
+	// 	if (window.location.hash == '#close_window') window.close();.
+
 
 	// show the SEND popup
 	$scope.PmPopup = function() {
