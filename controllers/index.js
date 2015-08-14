@@ -1,4 +1,5 @@
 var Rap = require('../models/models');
+var UserID = require('../models/models');
 
 //  get random numbers 
 function getRandom(min, max) {
