@@ -19,6 +19,7 @@ app.get('/templates/:templateName/', indexController.templates);
 
 app.get('/api/raps', apiController.get);
 app.post('/api/raps', apiController.createRap);
+app.get('/api/userIDs', apiController.userRoute);
 // this sends a $http request so doesn't 
 // use the api/raps route
 app.post('/game', apiController.game);

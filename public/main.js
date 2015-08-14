@@ -24,12 +24,12 @@ rapApp.factory('rapFactory', function($resource) {
 
 	// make a basline route for database
 	var model = $resource('/api/raps')
-
+	var userModel = $resource('/api/userIDs')
 	return {
 		model  : model, 
 		// model.query returns an array of objects
 		raps   : model.query(),
-		userIDs  : model.query()
+		userModel  : userModel
 	}
 })
 
@@ -40,16 +40,26 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 	$scope.raps = rapFactory.raps;
 	$scope.userIDs = rapFactory.userIDs;
 
-	
+	// match p1 userID with p1 rap
+	// show p1s rap
+
+
 	// add rap to doc 
 	$scope.addRap = function() {
+
+	//  $scope.theGameID = [];
+	//  $scope.theGameID = rapFactory.userIDs;
+	// console.log($scope.theGameID)
+
+		// this.newRap.creator = [$scope.gameID]
+		// this.newRap.creator=[$scope.theGameID]
+		this.newRap.creator=[$scope.user._id]
 								// this = $scope
-		var userRap = new rapFactory.model(this.newRap)
+		var userRap = new rapFactory.model(this.newRap.creator)
 		// sends POST to api/raps
 			userRap.$save(function(returnData) {
 				rapFactory.raps.push(returnData)
 				console.log("this is return", returnData)
-				
 			})		
 			// empties the object
 			this.newRap = {};
@@ -98,16 +108,24 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 		console.log("PmPopup")
 			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
 		}
-
+ 
 	var userID = $routeParams.uniqueID
 	console.log(userID)
-
-				// this is similar to the success object in Ajax
+				// .then is similar to the success object in Ajax
 				// this is not the $resource model, so it doesn't 
 				// use the api/raps base route
 	$http.post('/game', {userID : userID}).then(function(returnData){
-			console.log("uniqueID", returnData)
+			console.log("uniqueID", returnData.data)
+			rapFactory.userIDs.push(returnData.data._id)
+			// theGame.push(returnData.data._id)
 		})
 
+	// get _ID to feed createRap
+	// sends request to userRoute with the url ID
+
+	$scope.user = rapFactory.userModel.get({userID : $routeParams.uniqueID})
+
+	// put in with raps to send over to server
+	
 
 })
