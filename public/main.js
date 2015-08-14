@@ -40,8 +40,7 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 	$scope.raps = rapFactory.raps;
 	$scope.userIDs = rapFactory.userIDs;
 
-
-
+	
 	// add rap to doc 
 	$scope.addRap = function() {
 								// this = $scope
@@ -100,30 +99,15 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
 		}
 
-	// var userID = $routeParams.userID
-	var userID = uniqueID;
-	// var userID = 'hellonow'
-	// console.log(userID)
-	console.log(uniqueID);
+	var userID = $routeParams.uniqueID
+	console.log(userID)
 
 				// this is similar to the success object in Ajax
 				// this is not the $resource model, so it doesn't 
 				// use the api/raps base route
 	$http.post('/game', {userID : userID}).then(function(returnData){
-			console.log("uniqueID", returnData.data)
+			console.log("uniqueID", returnData)
 		})
 
-	// let's push the user ID into an object
-	// $scope.init = function() {
-		
-	// 	if(uniqueID === uniqueID) {
-	// 	var theUserID = new rapFactory.model(uniqueID)
-	// 	theUserID.$save(function(returnData) {
-	// 		rapFactory.userIDs.push(returnData)
-	// 		console.log(returnData)
-	// 		})
-	// 	}
-	// }
 
-	// $scope.init()
 })

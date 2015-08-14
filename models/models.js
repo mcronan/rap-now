@@ -16,11 +16,9 @@ var Rap = mongoose.model('Rap', rapSchema);
 var UserID = mongoose.model('UserID', userSchema);
 
 
-// var Schema = {
-// 	Rap  : Rap,
-// 	UserID : UserID
-// }
-// mongoose.schema.objectID
-// module.exports = UserID;
-module.exports = Rap;
+
+module.exports = {
+	UserID : UserID,
+	Rap    : Rap
+}
 
