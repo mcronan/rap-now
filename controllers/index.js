@@ -5,6 +5,7 @@ var UserID = require('../models/models');
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
 }
+	
 var randomNo = getRandom(1, 100000);
 
 var indexController = {
@@ -15,6 +16,7 @@ var indexController = {
 		// 	next()
 		// } else { 
 		res.render('index', {uniqueID : randomNo}); 
+
 		// }
 		// res.redirect('templates/secondrap');
 	},

@@ -2,18 +2,14 @@ var mongoose = require('mongoose');
 
 // one schema for users, one for raps
 var userSchema = mongoose.Schema({
-	userID   : [String],
-	// userRap  : [{
-		// 	type :  mongoose.Schema.ObjectId, 
-		// 	ref  : 'Rap'}]
+	userID   : String,
 })
 
 var rapSchema = mongoose.Schema({
 	rap 	: String,
 	date	: String,
-	creator : [{
-		type    : mongoose.Schema.ObjectId, 
-		ref     : 'UserID'}]
+	creator : String
+// no need for populate, only getting one piece of data
 })
 
 
