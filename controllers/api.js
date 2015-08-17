@@ -55,13 +55,15 @@ var apiController = {
 
 				})
 			}
+		}
 
-		// Populate - break out into new controller?
+		Populate - break out into new controller?
 		Models.Rap.find({}).populate('creator').exec(function(err,doc) {
 				console.log("populate : ", doc)
 		// 		})
 		})
-	},
+	
+}
 
 	// receives a get request from a controller with $routeParams.uniqueID
 	userRoute: function(req, res) {
@@ -72,5 +74,4 @@ var apiController = {
 		})
 
 	}
-}
 module.exports = apiController;
