@@ -14,8 +14,8 @@ rapApp.config(function($routeProvider) {
 		templateUrl : 'templates/secondrap',
 		controller : 'rapController'
 	})
-	.when('/game', {
-		templateUrl : 'templates/secondrap',
+	.when('/rapUrl', {
+		templateUrl : 'templates/firstrap',
 		controller : 'rapController'
 	})
 })
@@ -24,58 +24,74 @@ rapApp.factory('rapFactory', function($resource) {
 
 	// make a basline route for database
 	var model = $resource('/api/raps')
-	var userModel = $resource('/api/userIDs')
 	return {
 		model  : model, 
 		// model.query returns an array of objects
 		raps   : model.query(),
 		// this is not an array, cannot push to it
-		userModel  : userModel
+		// userModel  : userModel,
 	}
 })
 
-rapApp.controller('rapController', function($scope, $timeout, $routeParams, $http, rapFactory) {
-		
+
+rapApp.controller('rapController', function($location, $scope, $timeout, $routeParams, $http, rapFactory) {
+		// if it has a uniqueID, let it be!
+	if(!$routeParams.uniqueID) {
+		$location.url('/'+ window.hash)
+	}
+
 	// list of raps from rapFactory
 	$scope.raps = rapFactory.raps;
-	$scope.userModel = rapFactory.userModel;
+	// $scope.userModel = rapFactory.userModel
+
 	// not using
-	$scope.user ={}
+	$scope.user = {};
 	var userID = $routeParams.uniqueID
 	console.log(userID)
 
-	// match p1 userID with p1 rap
-	// show p1's rap
+// ***************************** Rap Route *****************************
 
-	// add rap to doc 
 	$scope.addRap = function() {
+		$scope.currentUser = userID;
+		// if it can't find it, then set it to an empty object
+		$scope.newRap = $scope.newRap || {};
+		$scope.newRap.creator = $scope.currentUser;
 
-	// sort on the front end, we only have once pice of data
-	$scope.currentUser = userID;
-	$scope.newRap.creator = $scope.currentUser;
-
-		// this.newRap.creator=[$scope.user._id]
-								// this = $scope
 		var userRap = new rapFactory.model(this.newRap)
-		// sends POST to api/raps
-			userRap.$save(function(returnData) {
-				rapFactory.raps.push(returnData)
-				console.log("this is return", returnData)
-				console.log("this is return + creator", returnData.creator)
-				if(userID === returnData.creator) {
-					console.log("hello")
-				}
+			// sends POST to api/raps
+				userRap.$save(function(returnData) {
+					rapFactory.raps.push(returnData)
+						console.log("Return rap", returnData)
+						console.log("Return + creator", returnData.creator)
+					if(userID === returnData.creator) {
+						console.log("userID == creator")
+					}
 			})		
 			// empties the object
 			this.newRap = {};
 		}
 
-	// features dependent on imer
+// ***************************** rapUrl Route ***************************
+	var myArray = [];
+	$scope.newArray = [];
+	var gameData = $http.post('/rapUrl', {userID : userID}).then(function(returnData){
+		console.log('returnData', returnData)
+			for(var key in returnData) {
+			myArray.push(returnData[key])
+			}	
+			var mapper = myArray.map(function(data) {
+				console.log("rap map", data.raps)
+				$scope.newArray.push(data.raps)
+				})
+		})
+
+// ***************************** Timer *****************************
+
+	// features dependent on timer
 	$scope.showinput = true;
 	$scope.showoutput = false;
 	$scope.timeInS = 4000;
 	$scope.showButton = false;
-	
 
     // countdown timer
 	var countDown = function() {
@@ -93,15 +109,13 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 			// show FB buttons
 			$scope.showButton = true;
 		} 
-		// else if((theTime === 0) && ($scope.newRap.creator ===)
-		
 	}
 	$timeout(countDown, 1000)
 
 	// show FEED popup
 	$scope.popup = function() {
 		console.log("popup")
-			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=http://rap-now.herokuapp.com/&redirect_uri=http://rap-now.herokuapp.com/", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=http://localhost:3500/&redirect_uri=http://localhost:3500/", "height=236, width=516") 
 		}
 
 	//  to close the popup when it works
@@ -112,27 +126,7 @@ rapApp.controller('rapController', function($scope, $timeout, $routeParams, $htt
 	// show the SEND popup
 	$scope.PmPopup = function() {
 		console.log("PmPopup")
-			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://localhost:3500/&redirect_uri=http://localhost:3500/", "height=236, width=516") 
 		}
- 		// our user ID from URL
-	
-				// .then is similar to the success object in Ajax
-				// this is not the $resource model, so it doesn't 
-				// use the api/raps base route
-	$http.post('/game', {userID : userID}).then(function(returnData){
-			// rapFactory.userModel = returnData.data.userID
-			// console.log("uniqueID", returnData.data.userID)
-			console.log('rapCreator', returnData)
-			
-		})
-
-	// get _ID to feed createRap
-	// sends request to userRoute with the url ID
-	// rapFactory.userModel.get({userID : $routeParams.uniqueID}).then(function(data){
-	// 	$scope.user = data;
-	// 	// this will fire when add rap fires
-	// })
-	// put in with raps to send over to server
-
 
 })

@@ -3,7 +3,7 @@ html(lang='en', ng-app="rapApp")
 	head
 		//- open graph markup for sharing
 		meta(charset="utf-8")
-		meta(property='og:url',content='https://rap-now.herokuapp.com')
+		meta(property='og:url',content='http://localhost:3500/')
 		meta(property='og:type',content='website')
 		meta(property='og:title',content='Rap Now')
 		meta(property='og:description',content='Throw down with your friends')
@@ -62,7 +62,7 @@ html(lang='en', ng-app="rapApp")
 			// they are logged into this app or not.
 			document.getElementById('status').innerHTML = 'Please log ' +
 			'into Facebook.';
-			}
+				}
 			}
 			// This function is called when someone finishes with the Login
 			// Button.  See the onlogin handler attached to it in the sample
@@ -121,7 +121,7 @@ html(lang='en', ng-app="rapApp")
 			FB.ui(
 			{
 			method: 'feed',
-			link: 'http://rap-now.herokuapp.com/',
+			link: 'http://localhost:3500/',
 			caption: 'testcaption',
 			display: 'popup',
 			},
@@ -138,7 +138,7 @@ html(lang='en', ng-app="rapApp")
 			// for the SEND dialog
 			FB.ui({
 			method: 'send',
-			link: 'https://rap-now.herokuapp.com/',
+			link: 'http://localhost:3500/',
 			});
 					
 

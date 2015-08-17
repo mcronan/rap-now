@@ -5,12 +5,13 @@ var UserID = require('../models/models');
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
 }
-	
-var randomNo = getRandom(1, 100000);
+		
 
 var indexController = {
+
 	// 'next' middleare for the second rapper
 	index: function(req, res, next) {
+	var randomNo = getRandom(1, 100000);
 		// pass in randomiser object in our route
 		// if((window.location.hash='#{uniqueID}') === (window.location.hash='#{uniqueID}')) {
 		// 	next()

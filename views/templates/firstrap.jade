@@ -2,6 +2,9 @@ h2 Ready to start?
 
 div{{timeInS}}
 
+.rap(ng-repeat="rap in newArray track by $index")
+	div{{rap}}
+
 //- share popup
 form(ng-submit="popup()" ng-show="showButton")
 	input(type="submit" value="share") 
@@ -18,6 +21,5 @@ form(ng-submit="addRap()" ng-show="showinput")
 //- shows rap
 div(ng-repeat="rap in raps")
 	div(id="finishedRap") {{rap.rap}}
-
 
 

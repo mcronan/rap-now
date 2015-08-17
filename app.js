@@ -18,11 +18,11 @@ app.get('/', indexController.index);
 app.get('/templates/:templateName/', indexController.templates);
 
 app.get('/api/raps', apiController.get);
-app.post('/api/raps', apiController.createRap);
-app.get('/api/userIDs', apiController.userRoute);
+app.post('/api/raps', apiController.rapUpdate);
+
+// app.get('/api/userIDs', apiController.userRoute);
 // this sends a $http request so doesn't 
 // use the api/raps route
-app.post('/game', apiController.game);
+app.post('/rapUrl', apiController.rapUrl);
 
-
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3500);
