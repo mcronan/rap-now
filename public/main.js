@@ -115,7 +115,7 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	// show FEED popup
 	$scope.popup = function() {
 		console.log("popup")
-			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
 		}
 
 	//  to close the popup when it works
@@ -126,7 +126,7 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	// show the SEND popup
 	$scope.PmPopup = function() {
 		console.log("PmPopup")
-			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com", "height=236, width=516") 
+			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
 		}
 
 })

@@ -121,7 +121,7 @@ html(lang='en', ng-app="rapApp")
 			FB.ui(
 			{
 			method: 'feed',
-			link: 'https://rap-now.herokuapp.com',
+			link: 'https://rap-now.herokuapp.com/:uniqueID',
 			caption: 'testcaption',
 			display: 'popup',
 			},
@@ -138,7 +138,7 @@ html(lang='en', ng-app="rapApp")
 			// for the SEND dialog
 			FB.ui({
 			method: 'send',
-			link: 'https://rap-now.herokuapp.com',
+			link: 'https://rap-now.herokuapp.com/:uniqueID',
 			});
 					
 
