@@ -32,11 +32,41 @@ rapApp.factory('rapFactory', function($resource) {
 		// userModel  : userModel,
 	}
 })
+// ***************************** timer *****************************
 
+// remember to link this up with other timer
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        miliseconds = (timer/1000)
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds
+
+        if (--timer < 0) {
+            timer = null;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+
+// ***************************** timer *****************************
 
 rapApp.controller('rapController', function($location, $scope, $timeout, $routeParams, $http, rapFactory) {
 
-		// if it has a uniqueID, let it be!
+
+	// if it has a uniqueID, let it be!
 	if(!$routeParams.uniqueID) {
 		$location.url('/'+ window.hash)
 	}
@@ -87,7 +117,7 @@ var thisArray = [];
 	// features dependent on timer
 	$scope.showinput = true;
 	$scope.showoutput = false;
-	$scope.timeInS = 4000;
+	$scope.timeInS = 6000;
 	$scope.showButton = false;
 
     // countdown timer

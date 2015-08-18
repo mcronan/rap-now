@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 // })
 
 var rapSchema = mongoose.Schema({
-	raps 	: [String],
+	raps 	: String,
 	date	: String,
 	creator : String
 // no need for populate, only getting one piece of data

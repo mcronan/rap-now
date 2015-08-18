@@ -1,13 +1,21 @@
-h2 Ready to start?
+h2 Time to Rhyme!
 
-//- regular share button
-.fb-share-button(data-layout='button' ng-show="showButton")
-#fb-root
 
-div{{timeInS}}
 
-.rap(ng-repeat="rap in newArray track by $index")
-	div{{rap}}
+//- .timer(data-ng-init='mSeconds=SecondsToMillisecond(seconds)')
+//- 	timer(start-time='mSeconds', max-time-unit="'minute'")
+//- 		{{mminutes}}:{{sseconds}}
+
+//- div{{timeInS}}
+
+.row
+	.col-sm-offset-5.col-sm-3
+		#time 01:00
+
+.row
+	.col-sm-offset-2
+		.rap(ng-repeat="rap in newArray track by $index")
+			div{{rap}}
 
 //- share popup
 //- form(ng-submit="popup()" ng-show="showButton")
@@ -18,9 +26,16 @@ div{{timeInS}}
 //- 	input(type="submit" value="SendPM")
 
 //- adds rap to db
-form(ng-submit="addRap()" ng-show="showinput")
-	input(placeholder="Enter your rap!" id="rapBox" ng-model="newRap.rap")
-	input(type="submit" value="submit") 
-
-div(ng-repeat="rap in raps")
-	div(id="finishedRap") {{rap.raps}}
+.row
+	.col-sm-offset-4
+		form(ng-submit="addRap()" ng-show="showinput")
+			input(placeholder="Enter your rap!" id="rapBox" ng-model="newRap.rap")
+		input(type="submit" value="Lay it down!" id="submitter" ng-show="showinput") 
+	.col-sm-offset-8
+		.fb-share-button(data-layout='button' ng-show="showButton")
+		#fb-root
+	.col-sm-offset-4
+		div(ng-repeat="rap in raps")
+			div(id="finishedRap") {{rap.raps}}
+	//- regular share button
+	
