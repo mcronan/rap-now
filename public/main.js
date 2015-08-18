@@ -35,6 +35,7 @@ rapApp.factory('rapFactory', function($resource) {
 
 
 rapApp.controller('rapController', function($location, $scope, $timeout, $routeParams, $http, rapFactory) {
+
 		// if it has a uniqueID, let it be!
 	if(!$routeParams.uniqueID) {
 		$location.url('/'+ window.hash)
@@ -50,7 +51,7 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	console.log(userID)
 
 // ***************************** Rap Route *****************************
-
+var thisArray = [];
 	$scope.addRap = function() {
 		$scope.currentUser = userID;
 		// if it can't find it, then set it to an empty object
@@ -61,12 +62,8 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 			// sends POST to api/raps
 				userRap.$save(function(returnData) {
 					rapFactory.raps.push(returnData)
-						console.log("Return rap", returnData)
-						console.log("Return + creator", returnData.creator)
-					if(userID === returnData.creator) {
-						console.log("userID == creator")
-					}
-			})		
+					})
+			
 			// empties the object
 			this.newRap = {};
 		}
@@ -112,11 +109,12 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	}
 	$timeout(countDown, 1000)
 
+
+	// these don't work with dynamic urls
 	// show FEED popup
-	$scope.popup = function() {
-		console.log("popup")
-			window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
-		}
+	// $scope.popup = function() {
+	// 	console.log("popup")
+	// 		window.open("https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&+escape(window.location.href)&redirect_uri=window.location.href", "height=236, width=516")}
 
 	//  to close the popup when it works
 	// Redirect to http://oursite.com/#close_window. Then on your site's homepage, include something like this:
@@ -124,9 +122,9 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 
 
 	// show the SEND popup
-	$scope.PmPopup = function() {
-		console.log("PmPopup")
-			window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
-		}
+	// $scope.PmPopup = function() {
+	// 	console.log("PmPopup")
+	// 		window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
+	// 	}
 
 })

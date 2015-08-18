@@ -38,20 +38,16 @@ var apiController = {
 // ***************************** Rap Route *****************************
 	
 	rapUpdate: function(req, res) {
-		// var newDbRap = new Models.Rap({
-		// 	creator: req.body.creator,
-		// 	raps : req.body.rap
-		// })
-		// newDbRap.save(function(err, doc) {
-		// 	res.send(doc)
-		// })
-
-		Models.Rap.findOneAndUpdate({creator: req.body.creator}, {$push:{raps : req.body.rap}}, function(err, rap) {
-			res.send(rap)
-		})
-
-	}
 	
+		Models.Rap.update({creator: req.body.creator}, {$push:{raps : req.body.rap}}, function(err, rap) {
+			Models.Rap.findOne({creator: req.body.creator}, function(err, doc) {
+			res.send(doc)
+					
+			})
+			console.log(rap)
+		})
+	
+	}
 }
 
 
