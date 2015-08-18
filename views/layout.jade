@@ -13,6 +13,8 @@ html(lang='en', ng-app="rapApp")
 		link(rel="stylesheet" type="text/css" href="main.css")
 
 	body
+		.fb-share-button(data-layout='button')
+		#fb-root
 		//- html LOGIN button
 		.fb-login-button(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
 		#fb-root
@@ -117,7 +119,7 @@ html(lang='en', ng-app="rapApp")
 			//- fb:login-button(scope='public_profile,email', onlogin='checkLoginState();')
 			//- #status
 
-			// for the SHARE dialog
+			// for the FEED dialog
 			FB.ui(
 			{
 			method: 'feed',
@@ -140,6 +142,16 @@ html(lang='en', ng-app="rapApp")
 			method: 'send',
 			link: 'https://rap-now.herokuapp.com/:uniqueID',
 			});
+
+			// for the SHARE (not feed) dialog
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=461796887275673";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
 					
 
 		//- a(href="https://www.facebook.com/dialog/feed?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com&redirect_uri=https://rap-now.herokuapp.com") Share
