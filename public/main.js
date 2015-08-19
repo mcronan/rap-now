@@ -10,6 +10,10 @@ rapApp.config(function($routeProvider) {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
+	.when('/battle', {
+		templateUrl : '/templates/firstrap',
+		controller : 'rapController'
+	})
 	.when('landing', {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
