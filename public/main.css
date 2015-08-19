@@ -104,14 +104,14 @@
 }
 
 .headText {
-	font-size: 19px;
-	padding-top: 7px;
+	font-size: 21px;
+	padding-top: 11px;
 	line-height: 12px;
 	font-weight: bold;
 	color: white;
 	background-color: #738270;
-	height: 50px;
-	width: 450px;
+	height: 60px;
+	width: 490px;
 }
 
 /*************************
@@ -133,6 +133,11 @@
 	height: 40px;
 	width: 300px;
 	margin-bottom: 35px;
+}
+
+.spacer-3 {
+	height: 23px;
+	width: 300px;
 }
 
 /*************************
@@ -178,9 +183,18 @@
 	margin-bottom: 10px;
 }
 
+.how-text {
+	font-size: 18px;
+}
+
+.p-text {
+	font-size: 17px;
+}
+
 .text-height {
 	line-height: 10px;
 }
+
 
 .write {
 	font-size: 40px;
@@ -204,8 +218,25 @@
 }
 
 .border-2 {
-	border-top: 1px solid black;
 	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+/*************************
+		Login
+**************************/
+.login {
+	height: 200px;
+}
+
+/*************************
+		Footer
+**************************/
+
+.footer {
+	height: 80px;
+	background-color: grey;
+	color: white;
 }
 
 
