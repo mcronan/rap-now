@@ -24,6 +24,10 @@ var indexController = {
 
 	templates: function(req, res) {
 		res.render('templates/' + req.params.templateName)
+	},
+
+	landing : function(req, res) {
+		res.render('landing')
 	}
 };
 

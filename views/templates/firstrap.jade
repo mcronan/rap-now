@@ -1,18 +1,15 @@
 h2 Time to Rhyme!
-
-
-
-//- .timer(data-ng-init='mSeconds=SecondsToMillisecond(seconds)')
-//- 	timer(start-time='mSeconds', max-time-unit="'minute'")
-//- 		{{mminutes}}:{{sseconds}}
-
-//- div{{timeInS}}
+.row
+	.col-sm-offset-5.col-sm-3
+		.fb-share-button(data-layout='button' ng-show="showButton")
+		#fb-root
 .row
 	.col-sm-2
 		section(ng-app='rapApp', ng-controller='rapController')
 			addbuttonsbutton
 			#space-for-buttons
 			{{rap.raps}}
+
 #theID
 
 .row
@@ -20,10 +17,7 @@ h2 Time to Rhyme!
 		//- .rap(ng-repeat="rap in newArray track by $index")
 		p You have one minute! Lay down your rap in the box to the right!
 	.col-sm-offset-1.col-sm-3
-		#time 01:00
-	.col-sm-offset-6
-		.fb-share-button(data-layout='button' ng-show="showButton")
-		#fb-root
+		#time {{timeInS | date:"ss:sss"}}
 .row
 	.p1Rap.col-sm-offset-1.col-sm-3
 			//- .rap(ng-repeat="rap in newArray track by $index")
@@ -39,7 +33,7 @@ h2 Time to Rhyme!
 		//- 	div(id="finishedRap") {{rap.raps}}
 	//- regular share button
 	
-
+a(href="landing") Landing
 
 
 //- share popup

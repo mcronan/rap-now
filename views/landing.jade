@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+	.postioner
+		.row
+			.col-sm-12.hero-img
+					img.img-responsive.the-img(src="http://static.stereogum.com/uploads/2013/10/A-Tribe-Called-Quest.jpg", alt="A-Tribe-Called-Quest") 
+			.header.col-sm-12
+		.row.padding
+			.col-sm-offset-4.col-sm-6
+				.col-sm-4
+					.rap Rap
+				.col-sm-4
+					.now Now!
+		.row
+			.headText.col-sm-offset-4.col-sm-5
+				p Challenge your friends to a written rap battle.
+				p The catch? You only have 30 seconds!
+		.row
+			.spacer.col-sm-12
+
+		.row
+			.col-sm-offset-5.col-sm-3
+				.fb-login-button(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
+				#fb-root
+
+

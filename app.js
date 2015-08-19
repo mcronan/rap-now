@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 
 app.get('/', indexController.index);
+app.get('/landing', indexController.landing);
 app.get('/templates/:templateName/', indexController.templates);
 
 app.get('/api/raps', apiController.get);

@@ -6,12 +6,12 @@ rapApp.config(function($routeProvider) {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
-	.when('/:uniqueID', {
+	.when('landing', {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
-	.when('/templates/secondrap', {
-		templateUrl : 'templates/secondrap',
+	.when('/:uniqueID', {
+		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
 	.when('/rapUrl', {
@@ -36,32 +36,12 @@ rapApp.factory('rapFactory', function($resource) {
 
 // remember to link this up with other timer
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-        miliseconds = (timer/1000)
+// this used to be on the old timer, keeping it here for
+// reference to "document.querySelector"
+    // var fiveMinutes = 60 * 1,
+    //     display = document.querySelector('#time');
+    // startTimer(fiveMinutes, display);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds
-
-        if (--timer < 0) {
-            timer = null;
-        }
-    }, 1000);
-}
-
-window.onload = function () {
-    var fiveMinutes = 60 * 1,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
-
-
-// ***************************** timer *****************************
 
 rapApp.controller('rapController', function($location, $scope, $timeout, $routeParams, $http, rapFactory) {
 
@@ -131,14 +111,14 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	// features dependent on timer
 	$scope.showinput = true;
 	$scope.showoutput = false;
-	$scope.timeInS = 6000;
+	$scope.timeInS = 5000;
 	$scope.showButton = false;
 
     // countdown timer
 	var countDown = function() {
-		var theTime = $scope.timeInS -= 1000;
-		var timer = $timeout(countDown, 1000)
-			if(theTime === 0) {
+		var theTime = $scope.timeInS -= 100;
+		var timer = $timeout(countDown, 100)
+		if(theTime === 0) {
 			// cancel the timer
 			$timeout.cancel(timer)
 			// fire addRap() when 0
@@ -150,12 +130,83 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 			// show FB buttons
 			$scope.showButton = true;
 		} 
-	}
-	$timeout(countDown, 1000)
 
-	// added for second controller
+	}
+
+	$timeout(countDown, 100)
+
+
+// ******************** TIMER Other ***********************
+
+// var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+// console.log(myDate)
+
+
+
+// var now = new Date();
+// var totalEnd = now.setHours(now.getHours() + 8);
+// var time = countdown( null, totalEnd, countdown.HOURS|countdown.MINUTES|countdown.SECONDS );
+// alert(time.days);
+
+
+
+
+	// // features dependent on timer
+	// $scope.showinput = true;
+	// $scope.showoutput = false;
+	// $scope.timeInS = 6000;
+	// $scope.showButton = false;
+
+ //    // countdown timer
+
+
 	
 
+	// 	var showtime = function(newTime) {
+				
+	// 			var countDown = function() {
+	// 			var theTime = $scope.timeInS -= 1000;
+	// 			var timer = $timeout(countDown, 1000)
+	// 			if(theTime === 0) {
+	// 				// cancel the timer
+	// 				$timeout.cancel(timer)
+	// 				// fire addRap() when 0
+	// 				$scope.addRap()
+	// 				// remove button
+	// 				$scope.showinput = false;
+	// 				// show new rap
+	// 				$scope.showoutput = true;
+	// 				// show FB buttons
+	// 				$scope.showButton = true;
+	// 	} 
+
+	// 		console.log($scope.timeInS)
+	// 		var newTime = $scope.timeInS
+
+	// 		var minutes = (newTime/60000)
+	// 		var seconds = (newTime/1000)
+	// 		console.log(minutes + ':' + seconds)
+	// 		}
+	// }
+	// $timeout(countDown, 1000)
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 // ******************** Adding a scope, directive ***********************
 })
 

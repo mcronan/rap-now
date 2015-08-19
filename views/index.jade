@@ -1,6 +1,14 @@
 extends layout
 
 block content
+	.row
+			.nav
+				.col-sm-2.logo 
+					p Rap Now!
+				.col-sm-offset-6.col-sm-2
+					//- html LOGIN button
+				.fb-login-button(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
+				#fb-root
 
 	div(ng-view)
 
