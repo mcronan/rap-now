@@ -28,6 +28,9 @@ var indexController = {
 
 	landing : function(req, res) {
 		res.render('landing')
+	},
+	battle : function(req, res) {
+		res.render('index')
 	}
 };
 

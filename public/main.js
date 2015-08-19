@@ -3,6 +3,10 @@ var rapApp = angular.module('rapApp', ['ngResource', 'ngRoute']);
 rapApp.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
+		templateUrl : '/landing',
+		controller : 'rapController'
+	})
+	.when('/battle', {
 		templateUrl : '/templates/firstrap',
 		controller : 'rapController'
 	})
