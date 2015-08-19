@@ -64,6 +64,16 @@
 	font-size: 20px;
 	background-color: grey;
 }
+
+/*****************************
+			P1
+*****************************/
+.p1Rap {
+	width: 300px;
+	height: 300px;
+	font-size: 20px;
+	background-color: peachPuff;
+}
 /*****************************
 	Share Button 
 *****************************/
@@ -73,3 +83,18 @@
     transform: scale(2.5);
     transform-origin: top left;
 }
+
+svg {
+    background-color: #0e0;
+    
+}
+
+section{
+    padding: 2em;   
+}
+button{
+    padding:0.3em;
+    margin: 0.3em;
+}
+
+

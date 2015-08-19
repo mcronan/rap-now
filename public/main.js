@@ -65,7 +65,11 @@ window.onload = function () {
 
 rapApp.controller('rapController', function($location, $scope, $timeout, $routeParams, $http, rapFactory) {
 
-
+	// not working with prevent default
+	$scope.paste = function (e) {
+		console.log(e.originalEvent.clipboardData.getData('text/plain'))
+    // console.log(e.originalEvent.clipboardData.getData('text/plain'));
+}
 	// if it has a uniqueID, let it be!
 	if(!$routeParams.uniqueID) {
 		$location.url('/'+ window.hash)
@@ -81,8 +85,16 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	console.log(userID)
 
 // ***************************** Rap Route *****************************
-var thisArray = [];
+
 	$scope.addRap = function() {
+		// this keeps the latest rap in the client, ready to 
+		// be appended, so the user only sees their latest rap. 
+		// Everything else stored in the database any
+		var myEl = angular.element( document.querySelector( '#finishedRap' ) );
+			// $scope.newRap = ""
+			myEl.append($scope.newRap.rap); 
+		
+
 		$scope.currentUser = userID;
 		// if it can't find it, then set it to an empty object
 		$scope.newRap = $scope.newRap || {};
@@ -92,6 +104,8 @@ var thisArray = [];
 			// sends POST to api/raps
 				userRap.$save(function(returnData) {
 					rapFactory.raps.push(returnData)
+					console.log(returnData.raps)
+				
 					})
 			
 			// empties the object
@@ -139,6 +153,28 @@ var thisArray = [];
 	}
 	$timeout(countDown, 1000)
 
+	// added for second controller
+	
+
+// ******************** Adding a scope, directive ***********************
+})
+
+
+		//Directive that returns an element which adds buttons on click which show an alert on click
+		// rapApp.directive("addbuttonsbutton", function(){
+		// 	var me = "this is me"
+		// 	return {
+		// 		restrict: "E",
+		// 		template: me
+		// 	}
+		// });
+
+
+	
+
+
+
+
 
 	// these don't work with dynamic urls
 	// show FEED popup
@@ -157,4 +193,4 @@ var thisArray = [];
 	// 		window.open("https://www.facebook.com/dialog/send?app_id=473646152796474&display=popup&caption=An%20example%20caption&link=https://rap-now.herokuapp.com/:uniqueID&redirect_uri=https://rap-now.herokuapp.com/:uniqueID", "height=236, width=516") 
 	// 	}
 
-})
+
