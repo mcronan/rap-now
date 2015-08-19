@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 
 app.get('/battle', indexController.index);
 app.get('/', indexController.landing);
-app.get('/battle', indexController.battle);
 
 app.get('/templates/:templateName/', indexController.templates);
 
