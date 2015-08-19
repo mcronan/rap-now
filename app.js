@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
-app.get('/', indexController.index);
+app.get('/battle', indexController.index);
 app.get('/landing', indexController.landing);
 app.get('/battle', indexController.battle);
 
