@@ -105,7 +105,7 @@
 
 .headText {
 	font-size: 19px;
-	padding-top: 4px;
+	padding-top: 7px;
 	line-height: 12px;
 	font-weight: bold;
 	color: white;
@@ -114,9 +114,25 @@
 	width: 450px;
 }
 
+/*************************
+		Spacers
+**************************/
+
 .spacer {
 	height: 80px;
 	width: 300px;
+}
+
+.spacer-2 {
+	height: 40px;
+	width: 300px;
+	margin-bottom: 10px;
+}
+
+.spacer-2 {
+	height: 40px;
+	width: 300px;
+	margin-bottom: 35px;
 }
 
 /*************************
@@ -142,23 +158,58 @@
 	height: 150px;
 	line-height: 150px;
 	text-align: center;
-
 }
 
 /*************************
 		Img
 **************************/
-.hero-img {
-	top: 0;
-	right: 0;
-	width: 100%;
-	max-height: 100%;
-	position: absolute;
+
+.img-container {
+	background-image: url("hero-img.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
-.the-vid {
-	min-height: 100%;
-/*	max-height: 500px;
-*/}
-.positioner {
-	position: relative;
+
+
+/*************************
+		How it works
+**************************/
+.how-title {
+	margin-bottom: 10px;
 }
+
+.text-height {
+	line-height: 10px;
+}
+
+.write {
+	font-size: 40px;
+}
+
+.main-content: {
+	margin-bottom: 80px;
+}
+
+.battle {
+	margin-bottom: 40px;
+}
+
+/*************************
+		Border
+**************************/
+
+.border {
+	border-top: 1px solid black;
+	margin-bottom: 20px;
+}
+
+.border-2 {
+	border-top: 1px solid black;
+	margin-top: 20px;
+}
+
+
+
+
+
+
