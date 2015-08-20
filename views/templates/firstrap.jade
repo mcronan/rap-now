@@ -31,14 +31,19 @@
 		input(type="submit" value="Lay it down!" id="submitter" ng-show="showinput") 
 	.output-rap.col-sm-offset-3.col-sm-3
 		#finishedRap(ng-show="showoutput")
+
+.footer-2
+	.row
+		.col-sm-12.spacer-3
+	.row
+		.col-sm-offset-3.col-sm-8
+			.col-sm-offset-1.col-sm-4
+				p Made by Ronan Mc Guire 
+			.col-sm-2
+				a(href="https://github.com/mcronan") GitHub	
 		//- div(ng-repeat="rap in raps" ng-show="showoutput")
 		//- 	div(id="finishedRap") {{rap.raps}}
 	//- regular share button
-	
-a(href="landing") Landing
-
-
-
 //- share popup
 //- form(ng-submit="popup()" ng-show="showButton")
 //- 	input(type="submit" value="share") 
@@ -48,4 +53,3 @@ a(href="landing") Landing
 //- 	input(type="submit" value="SendPM")
 
 //- adds rap to db
-

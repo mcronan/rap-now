@@ -2,29 +2,28 @@ extends layout
 
 block content
 	.row
-			.nav
-				.col-sm-2.logo 
-					p Rap Now!
-				.col-sm-offset-6.col-sm-2
-					//- html LOGIN button
-				.fb-login-button.login-2(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
-				#fb-root
+		.nav
+			.col-sm-2.logo 
+				p Rap Now!
+			.col-sm-offset-6.col-sm-2
+				//- html LOGIN button
+			.fb-login-button.login-2(data-max-rows='2', data-size='xlarge', data-show-faces='false', data-auto-logout-link='true')
+			#fb-root
 
 	div(ng-view)
 
 	script.
-		
 		//- will apply to everything after the #
 		//- var uniqueID = '#{uniqueID}'
 		window.hash='#{uniqueID}'
 
-	div(ng-init="init()")
-	.footer
-		.row
-			.col-sm-12.spacer-3
-		.row
-			.col-sm-offset-3.col-sm-8
-				.col-sm-offset-1.col-sm-4
-					p Made by Ronan Mc Guire 
-				.col-sm-2
-					a(href="https://github.com/mcronan") GitHub
+	//- div(ng-init="init()")
+	//- .footer
+		//- .row
+		//- 	.col-sm-12.spacer-3
+		//- .row
+		//- 	.col-sm-offset-3.col-sm-8
+		//- 		.col-sm-offset-1.col-sm-4
+		//- 			p Made by Ronan Mc Guire 
+		//- 		.col-sm-2
+		//- 			a(href="https://github.com/mcronan") GitHub	
