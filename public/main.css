@@ -1,5 +1,14 @@
-h1, h2, h4, h5, .how-text-2 {
+
+/*****************************
+			Select Elements
+*****************************/
+
+h1, h2, h4, h5, .how-text-2, .login-but, .main-content {
 	text-align: center;
+}
+
+body {
+	background-color: #eff0f1;
 }
 
 
@@ -22,7 +31,7 @@ a:visited {
 *****************************/
 .nav {
 	height: 55px;
-    border-bottom: 3px solid #538266;
+    border-bottom: 3px solid #B8B64F;
 }
 
 .logo {
@@ -47,8 +56,6 @@ a:visited {
 	font-size: 20px;
 	padding-bottom: 260px;
 	border-radius: 3px;
-	/*box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset, 0 -1px 0 rgba(0,0,0,0.05) inset;
-	transition: all 0.2s linear;*/
 	font-family: "Helvetica Neue", sans-serif;
 	color: #222222;
 	position: relative;
@@ -100,7 +107,8 @@ a:visited {
 	width: 300px;
 	height: 300px;
 	font-size: 20px;
-	background-color: #758279;
+	background-color: black;
+	color: #B8B64F;
 	border: solid 3px #c9c9c9;
  	transition: border 0.3s;
 }
@@ -112,7 +120,8 @@ a:visited {
 	width: 300px;
 	height: 300px;
 	font-size: 20px;
-	background-color: #6B7C94;
+	background-color: #B8B64F;
+	color: black;	
 	border: solid 3px #c9c9c9;
  	transition: border 0.3s;
 }
@@ -159,6 +168,7 @@ a:visited {
 	background-color: #738270;
 	height: 60px;
 	width: 490px;
+	text-align: center;
 }
 
 /*************************
@@ -203,7 +213,7 @@ a:visited {
 
 
 .now {
-	background-color: #3F6394;
+	background-color: #B8B64F;
 	color: white;
 	font-size: 40px;
 	width: 150px;
@@ -217,10 +227,11 @@ a:visited {
 **************************/
 
 .img-container {
-	background-image: url("hero-img.jpg");
+	background-image: url("battle-2.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
 
 
 /*************************
@@ -264,7 +275,7 @@ a:visited {
 **************************/
 
 .border {
-	border-top: 1px solid black;
+	border-top: 3px solid #B8B64F;
 	margin-bottom: 20px;
 }
 
@@ -286,13 +297,13 @@ a:visited {
 
 .footer {
 	height: 80px;
-	background-color: grey;
+	background-color: #B8B64F;
 	color: white;
 }
 
 .footer-2 {
 	height: 80px;
-	background-color: grey;
+	background-color: #B8B64F;
 	color: white;
 	position: fixed;
 	bottom: 0;
