@@ -2,7 +2,7 @@
 	.col-sm-12
 		.spacer
 .row
-	.col-sm-offset-5.col-sm-3
+	.col-sm-offset-4.col-sm-3
 		.fb-share-button(data-layout='button' ng-show="showButton")
 		#fb-root
 .row
@@ -13,7 +13,7 @@
 			{{rap.raps}}
 
 .row
-	.p1Text.col-sm-offset-1.col-sm-3
+	.p1Text.col-sm-offset-1.col-sm-2
 		//- .rap(ng-repeat="rap in newArray track by $index")
 		p You have one minute! Lay down your rap in the box to the right!
 	.col-sm-offset-1.col-sm-3
@@ -25,7 +25,7 @@
 	.input-rap.col-sm-offset-3.col-sm-3
 		form(ng-submit="addRap()" ng-show="showinput")
 																	//- pasting has been disabled, no cheaters!
-			input(placeholder="Enter your rap!" id="rapBox" ng-model="newRap.rap" ng-paste="$event.preventDefault()" ng-show="showinput")
+			input(placeholder="Get going!" id="rapBox" ng-model="newRap.rap" ng-paste="$event.preventDefault()" ng-show="showinput")
 		input(type="submit" value="Lay it down!" id="submitter" ng-show="showinput") 
 	.output-rap.col-sm-offset-3.col-sm-3
 		#finishedRap(ng-show="showoutput")
