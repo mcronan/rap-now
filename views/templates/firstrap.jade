@@ -2,8 +2,6 @@
 	.col-sm-4.battle-text
 		p Lay down your rap in the box to the right!
 		.spacer
-		
-		
 .row
 	.col-sm-offset-4.col-sm-3.center
 		.fb-share-button(data-layout='button' ng-show="showButton")
@@ -21,18 +19,15 @@
 	.col-sm-offset-1.col-sm-3
 		#time(ng-show="showinput") {{timeInS | date:"ss:sss"}}
 .row
-	.p1Rap.col-sm-offset-1.col-sm-3
+	.p1Rap.col-sm-offset-2.col-sm-3
 			//- .rap(ng-repeat="rap in newArray track by $index")
 			div{{newArray[0]}}
 	.input-rap.col-sm-offset-4.col-sm-3
 		form(ng-submit="addRap()" ng-show="showinput")
-																	//- pasting has been disabled, no cheaters!
-																	//- ng-paste="$event.preventDefault()"
 			input(placeholder="Spit a verse!" id="rapBox" ng-model="newRap.rap" ng-show="showinput")
 		input(type="submit" value="Lay it down!" id="submitter" ng-show="showinput") 
 	.output-rap.col-sm-offset-4.col-sm-3
 		#finishedRap(ng-show="showoutput")
-
 .footer-2
 	.row
 		.col-sm-12.spacer-3
