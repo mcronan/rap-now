@@ -111,7 +111,7 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 	// features dependent on timer
 	$scope.showinput = true;
 	$scope.showoutput = false;
-	$scope.timeInS = 5000;
+	$scope.timeInS = 30000;
 	$scope.showButton = false;
 
     // countdown timer

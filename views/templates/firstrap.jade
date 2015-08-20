@@ -27,7 +27,8 @@
 	.input-rap.col-sm-offset-4.col-sm-3
 		form(ng-submit="addRap()" ng-show="showinput")
 																	//- pasting has been disabled, no cheaters!
-			input(placeholder="Spit a verse!" id="rapBox" ng-model="newRap.rap" ng-paste="$event.preventDefault()" ng-show="showinput")
+																	//- ng-paste="$event.preventDefault()"
+			input(placeholder="Spit a verse!" id="rapBox" ng-model="newRap.rap" ng-show="showinput")
 		input(type="submit" value="Lay it down!" id="submitter" ng-show="showinput") 
 	.output-rap.col-sm-offset-4.col-sm-3
 		#finishedRap(ng-show="showoutput")
