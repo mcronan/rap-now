@@ -12,6 +12,14 @@ body {
 }
 
 
+/*****************************
+			Links
+*****************************/
+
+h1, h2, h4, h5, p {
+	font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
 
 /*****************************
 			Links
@@ -36,6 +44,10 @@ a:visited {
 
 .logo {
 	font-size: 30px;
+/*	background-color: #727272;
+*/	color: #727272;
+	width: 160px;
+	padding-top: 6px;
 }
 
 /*****************************
@@ -44,8 +56,12 @@ a:visited {
 #time {
 	font-size: 30px;
 	font: courier;
+	text-align: center;
 }
 
+.center {
+	text-align: center;
+}
 /*****************************
 			Input Rap
 *****************************/
@@ -54,6 +70,7 @@ a:visited {
 	width: 300px;
 	height: 300px;
 	font-size: 20px;
+	padding-right: 24px;
 	padding-bottom: 260px;
 	border-radius: 3px;
 	font-family: "Helvetica Neue", sans-serif;
@@ -120,10 +137,17 @@ a:visited {
 	width: 300px;
 	height: 300px;
 	font-size: 20px;
-	background-color: #B8B64F;
-	color: black;	
+	background-color: #727272;
+	color: #B8B64F;	
 	border: solid 3px #c9c9c9;
  	transition: border 0.3s;
+}
+
+.battle-text {
+	font-size: 18px;
+	padding-top: 10px;
+	padding-left: 30px;
+	color: #727272;
 }
 /*****************************
 		FB Buttons
@@ -141,6 +165,7 @@ a:visited {
 
 .fb-login-button.login-2 {
 	transform: scale(.8);
+	padding-top: 8px;
 }
 
 /**********************************
@@ -202,8 +227,8 @@ a:visited {
 **************************/
 
 .rap  {
-	background-color: #538266;
-	color: white;
+	background-color: #727272;
+	color:  white;
 	font-size: 40px;
 	width: 150px;
 	height: 150px;
