@@ -130,7 +130,6 @@ rapApp.controller('rapController', function($location, $scope, $timeout, $routeP
 			// show FB buttons
 			$scope.showButton = true;
 		} 
-
 	}
 
 	$timeout(countDown, 100)
